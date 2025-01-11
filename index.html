@@ -1,1 +1,186 @@
-hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Haoxuan Ma" />
+    <meta name="description" content="PhD Student in Intelligent Transportation System" />
+    <title>Haoxuan Ma - Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .publication-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-item {
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- About Section with Profile Image -->
+        <section id="about">
+            <div class="profile-section">
+                <img src="personalimage.JPG" alt="Haoxuan Ma" class="profile-image">
+                <div>
+                    <h1>About Me</h1>
+                    <p>I am currently a second-year PHD student at <a href="https://mobility-lab.seas.ucla.edu/">UCLA Mobility Lab</a>, 
+                    under the guidance of <a href="https://mobility-lab.seas.ucla.edu/about/">Dr. Jiaqi Ma</a>.</p>
+                    
+                    <p>My research interests include:</p>
+                    <ul>
+                        <li>Artificial Intelligence and Machine Learning</li>
+                        <li>Large Language Models (LLMs)</li>
+                        <li>Intelligent Transportation Systems</li>
+                        <li>Anomaly Detection</li>
+                        <li>Autonomous Driving</li>
+                        <li>Mobility System-level Digital Twins</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h1>Education</h1>
+            <ul>
+                <li>
+                    <h3>PhD in Intelligent Transportation System</h3>
+                    <p>University of California, Los Angeles, CA, USA</p>
+                    <p>Fall 2023 - Present</p>
+                </li>
+                <li>
+                    <h3>MS in Information System Management</h3>
+                    <p>Carnegie Mellon University, PA, USA</p>
+                    <p>September 2021 - May 2023</p>
+                </li>
+                <li>
+                    <h3>BS in Data Science & Business Analytics (Double Major)</h3>
+                    <p>University of Rochester, NY, USA</p>
+                    <p>September 2017 - May 2021</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- News Section -->
+        <section id="news">
+            <h1>News</h1>
+            <ul>
+                <li>01/2025: Attended TRB 2025 with multiple poster sessions</li>
+                <li>11/2024: One paper was accepted by TRB's Conference on Data and AI for Transportation Advancement</li>
+                <li>10/2024: One paper was accepted by IEEE Transaction on Intelligent Vehicles and One paper was accepted by ECCV 2025</li>
+                <li>09/2024: Presented in ITSC 2024 in Lectern and workshop at Edmonton, Canada and One paper won ITSC 2024 Best Paper Award!</li>
+                <li>06/2024: Two Papers accepted by ITSC 2024</li>
+                <li>09/2023: Started my Ph.D. Journey</li>
+            </ul>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications">
+            <h1>Selected Publications</h1>
+            <ul>
+                <li>
+                    <p><strong>Mobility AI Agents and Networks</strong><br>
+                    H Ma, Y Liu, Q Jiang, BY He, X Liao, J Ma</p>
+                </li>
+                <li>
+                    <p><strong>A Two-sided Model for EV Market Dynamics and Policy Implications</strong> (ITSC 2024)<br>
+                    H Ma, BY He, T Kaljevic, J Ma</p>
+                </li>
+                <li>
+                    <p><strong>Human mobility modeling with limited information via large language models</strong><br>
+                    Y Liu, X Liao, H Ma, BY He, C Stanford, J Ma</p>
+                </li>
+                <li>
+                    <p><strong>Multi-agent multimodal transportation simulation for mega-cities: Application of los angeles</strong><br>
+                    BY He, Q Jiang, M Haoxuan, J Ma</p>
+                </li>
+                <li>
+                    <p><strong>Semantic Trajectory Data Mining with LLM-Informed POI Classification</strong> (ITSC 2024, Best Paper Award)<br>
+                    Y Liu, C Kuai, H Ma, X Liao, BY He, J Ma</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching">
+            <h1>Teaching Experience</h1>
+            <ul>
+                <li>TA of CEE185/285: Transportation Systems Analysis in UCLA</li>
+                <li>TA of CEE181/281: Traffic Engineering Systems: Operations and Control in UCLA</li>
+                <li>TA of 95702: Distributed Systems for Information Systems Management in Carnegie Mellon University</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
