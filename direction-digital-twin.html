@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Haoxuan Ma">
+  <meta name="description" content="Urban Mobility Digital Twins direction write-up with coherent figures and videos.">
+  <title>Urban Mobility Digital Twins | Haoxuan Ma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">Haoxuan (Nick) Ma</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a class="active" href="research.html">Research Directions</a>
+        <a href="publications.html">Publications</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <p class="back-link"><a class="button" href="research.html">Back to Research Directions</a></p>
+
+    <article class="markdown-page">
+      <h1>Urban Mobility Digital Twins</h1>
+      <p class="subtitle">2023 - Present | Large-Scale Simulation and Interactive Scenario Intelligence</p>
+
+      <h2>Project Overview</h2>
+      <p>
+        This direction builds city-scale digital twins where synthetic people, household behavior, and transportation networks interact in a shared simulation environment. The objective is to support planning and operations with controllable, interpretable scenario testing.
+      </p>
+
+      <h2>Motivation</h2>
+      <p>
+        Static demand forecasts are not enough for real operational decisions. Agencies and planners need systems that can model disruptions, policy changes, and event effects while preserving behavioral realism and transparent assumptions.
+      </p>
+
+      <h2>Goal</h2>
+      <p>
+        Build an operational digital-twin stack that combines generative mobility intelligence with network simulation so interventions can be tested quickly and compared consistently.
+      </p>
+
+      <h2>System Narrative</h2>
+      <h3>Core architecture</h3>
+      <p>
+        The architecture combines a lightweight domain simulation layer with LLM-augmented adaptive behavior modules to support scenario-driven response.
+      </p>
+      <figure class="doc-figure">
+        <img src="assets/figures/mobiverse-flow.png" alt="MobiVerse architecture flow diagram">
+        <figcaption>MobiVerse architecture linking agent behavior synthesis and network-level simulation control.</figcaption>
+      </figure>
+
+      <h3>Observed city-scale dynamics</h3>
+      <p>
+        Simulation outputs reveal how local interventions propagate across the urban system, including emergent congestion and redistribution patterns.
+      </p>
+      <figure class="doc-figure">
+        <img src="assets/figures/mobiverse-heatmap.png" alt="MobiVerse simulation heatmap">
+        <figcaption>Example spatial dynamics from scenario-driven digital twin simulation.</figcaption>
+      </figure>
+
+      <h3>Interactive evidence</h3>
+      <p>
+        The videos below show the operational interface and behavior response under simulation controls. Media frames use aspect-safe rendering so both horizontal and vertical captures remain readable.
+      </p>
+      <figure class="doc-figure">
+        <video controls preload="metadata">
+          <source src="assets/videos/mobiverse.mp4" type="video/mp4">
+        </video>
+        <figcaption>MobiVerse demonstration with interactive scenario manipulation.</figcaption>
+      </figure>
+
+      <figure class="doc-figure">
+        <video controls preload="metadata">
+          <source src="assets/videos/la-sim.mp4" type="video/mp4">
+        </video>
+        <figcaption>LA-Sim demonstration for large-scale multimodal operations.</figcaption>
+      </figure>
+
+      <h2>Results</h2>
+      <ul>
+        <li>Validated deployment coverage includes <strong>LA, Seattle, Mexico City, Cairo, and Tokyo</strong>.</li>
+        <li>Pipeline usage includes <strong>7M+ synthetic agents</strong> across validated settings.</li>
+        <li>MobiVerse reports simulation at around <strong>53k agents</strong> on a single PC in documented tests.</li>
+        <li>LA-Sim demonstrates <strong>1M-agent</strong> multimodal simulation with freeway volume reproduction around <strong>5% RMSE</strong>.</li>
+      </ul>
+
+      <h2>Impact</h2>
+      <p>
+        This direction turns mobility AI into a usable planning environment. It supports rapid intervention analysis, stronger communication of scenario tradeoffs, and more trustworthy AI-assisted transportation decisions in practice.
+      </p>
+
+      <h2>Representative Publications</h2>
+      <ul>
+        <li><a href="assets/papers/mobility-ai-agents-networks.pdf" target="_blank" rel="noopener noreferrer">Mobility AI Agents and Networks: A Digital Twin Perspective</a></li>
+        <li><a href="assets/papers/mobiverse.pdf" target="_blank" rel="noopener noreferrer">MobiVerse: Scaling Urban Mobility Simulation with Hybrid Lightweight Domain-Specific Generator and Large Language Models</a></li>
+        <li><a href="assets/papers/la-sim.pdf" target="_blank" rel="noopener noreferrer">Multi-Agent Multimodal Mobility Simulation for Mega-cities: Case of Los Angeles (LA-Sim)</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <p class="footer">Direction page: Urban Mobility Digital Twins.</p>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

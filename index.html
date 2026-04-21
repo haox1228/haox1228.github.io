@@ -1,186 +1,119 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Haoxuan Ma" />
-    <meta name="description" content="PhD Student in Intelligent Transportation System" />
-    <title>Haoxuan Ma - Personal Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        .profile-section {
-            display: flex;
-            align-items: flex-start;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .contact-info {
-            text-align: center;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-top: 1px solid #dee2e6;
-        }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .publication-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .news-item {
-            padding: 10px 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Haoxuan Ma">
+  <meta name="description" content="Haoxuan (Nick) Ma | PhD researcher in intelligent transportation systems, mobility foundation models, and digital twin simulation.">
+  <title>Haoxuan Ma | Academic Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- About Section with Profile Image -->
-        <section id="about">
-            <div class="profile-section">
-                <img src="personalimage.JPG" alt="Haoxuan Ma" class="profile-image">
-                <div>
-                    <h1>About Me</h1>
-                    <p>I am currently a second-year PHD student at <a href="https://mobility-lab.seas.ucla.edu/">UCLA Mobility Lab</a>, 
-                    under the guidance of <a href="https://mobility-lab.seas.ucla.edu/about/">Dr. Jiaqi Ma</a>.</p>
-                    
-                    <p>My research interests include:</p>
-                    <ul>
-                        <li>Artificial Intelligence and Machine Learning</li>
-                        <li>Large Language Models (LLMs)</li>
-                        <li>Intelligent Transportation Systems</li>
-                        <li>Anomaly Detection</li>
-                        <li>Autonomous Driving</li>
-                        <li>Mobility System-level Digital Twins</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education">
-            <h1>Education</h1>
-            <ul>
-                <li>
-                    <h3>PhD in Intelligent Transportation System</h3>
-                    <p>University of California, Los Angeles, CA, USA</p>
-                    <p>Fall 2023 - Present</p>
-                </li>
-                <li>
-                    <h3>MS in Information System Management</h3>
-                    <p>Carnegie Mellon University, PA, USA</p>
-                    <p>September 2021 - May 2023</p>
-                </li>
-                <li>
-                    <h3>BS in Data Science & Business Analytics (Double Major)</h3>
-                    <p>University of Rochester, NY, USA</p>
-                    <p>September 2017 - May 2021</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- News Section -->
-        <section id="news">
-            <h1>News</h1>
-            <ul>
-                <li>01/2025: Attended TRB 2025 with multiple poster sessions</li>
-                <li>11/2024: One paper was accepted by TRB's Conference on Data and AI for Transportation Advancement</li>
-                <li>10/2024: One paper was accepted by IEEE Transaction on Intelligent Vehicles and One paper was accepted by ECCV 2025</li>
-                <li>09/2024: Presented in ITSC 2024 in Lectern and workshop at Edmonton, Canada and One paper won ITSC 2024 Best Paper Award!</li>
-                <li>06/2024: Two Papers accepted by ITSC 2024</li>
-                <li>09/2023: Started my Ph.D. Journey</li>
-            </ul>
-        </section>
-
-        <!-- Publications Section -->
-        <section id="publications">
-            <h1>Selected Publications</h1>
-            <ul>
-                <li>
-                    <p><strong>Mobility AI Agents and Networks</strong><br>
-                    H Ma, Y Liu, Q Jiang, BY He, X Liao, J Ma</p>
-                </li>
-                <li>
-                    <p><strong>A Two-sided Model for EV Market Dynamics and Policy Implications</strong> (ITSC 2024)<br>
-                    H Ma, BY He, T Kaljevic, J Ma</p>
-                </li>
-                <li>
-                    <p><strong>Human mobility modeling with limited information via large language models</strong><br>
-                    Y Liu, X Liao, H Ma, BY He, C Stanford, J Ma</p>
-                </li>
-                <li>
-                    <p><strong>Multi-agent multimodal transportation simulation for mega-cities: Application of los angeles</strong><br>
-                    BY He, Q Jiang, M Haoxuan, J Ma</p>
-                </li>
-                <li>
-                    <p><strong>Semantic Trajectory Data Mining with LLM-Informed POI Classification</strong> (ITSC 2024, Best Paper Award)<br>
-                    Y Liu, C Kuai, H Ma, X Liao, BY He, J Ma</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Teaching Section -->
-        <section id="teaching">
-            <h1>Teaching Experience</h1>
-            <ul>
-                <li>TA of CEE185/285: Transportation Systems Analysis in UCLA</li>
-                <li>TA of CEE181/281: Traffic Engineering Systems: Operations and Control in UCLA</li>
-                <li>TA of 95702: Distributed Systems for Information Systems Management in Carnegie Mellon University</li>
-            </ul>
-        </section>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">Haoxuan (Nick) Ma</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="research.html">Research Directions</a>
+        <a href="publications.html">Publications</a>
+      </nav>
     </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="personalimage.JPG" alt="Portrait of Haoxuan Ma" class="hero-photo">
+      <div>
+        <h1>PhD Researcher in Intelligent Transportation Systems</h1>
+        <p class="subtitle">UCLA Mobility Lab | Foundation Models, Mobility AI Agents, and Digital Twin Systems</p>
+        <p class="bio">
+          Haoxuan (Nick) Ma is a PhD student in Intelligent Transportation Systems at the University of California, Los Angeles. His research develops foundation-model and generative-AI methods for mobility data fusion, household-coordinated activity generation, and city-scale traffic simulation. Across transportation planning, safety, and policy applications, he builds scalable pipelines that connect AI methods with interpretable, real-world deployment.
+        </p>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>Contact</h2>
+      <div class="token-row" aria-label="Contact Links">
+        <a class="token" href="mailto:haox1228@gmail.com">📧 Email - haox1228@gmail.com</a>
+        <a class="token" href="https://linkedin.com/in/haoxuan-ma" target="_blank" rel="noopener noreferrer">💼 LinkedIn - haoxuan-ma</a>
+        <a class="token" href="https://github.com/haox1228" target="_blank" rel="noopener noreferrer">💻 GitHub - haox1228</a>
+        <a class="token" href="https://scholar.google.com/citations?view_op=list_works&hl=en&authuser=1&hl=en&user=QSm9ImAAAAAJ&authuser=1" target="_blank" rel="noopener noreferrer">🎓 Google Scholar</a>
+        <a class="token" href="assets/cv/haoxuan-cv-ucla.docx" target="_blank" rel="noopener noreferrer">📄 CV (Full)</a>
+      </div>
+    </section>
+
+    <section class="grid two">
+      <article class="card">
+        <h2>Academic Snapshot</h2>
+        <p>
+          Current work centers on mobility foundation models, retrieval-augmented generation for behavior synthesis, and agentic digital twins for transportation policy and operations.
+        </p>
+        <ul class="metrics">
+          <li>PhD in ITS at UCLA</li>
+          <li>16+ Publications</li>
+          <li>250+ Citations</li>
+          <li>Venues: ECCV, AAAI, IEEE ITSC, IEEE T-IV, TR Part C</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Education</h2>
+        <ul class="item-list">
+          <li><strong>University of California, Los Angeles</strong> - PhD in Intelligent Transportation Systems (2023-Present)</li>
+          <li><strong>Carnegie Mellon University</strong> - MS in Information Systems Management (2023)</li>
+          <li><strong>University of Rochester</strong> - BS in Business Analytics, BA in Data Science (2021)</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>News and Highlights</h2>
+      <ul class="item-list">
+        <li><strong>ITSC 2024:</strong> Best Paper Award.</li>
+        <li><strong>ITSC 2025:</strong> Multiple papers shortlisted on final nomination lists.</li>
+        <li><strong>U.S. DOT Intersection Safety Challenge (2024):</strong> Tier 1 Winner, <strong>$750K</strong> (Top 4 of 120 national teams).</li>
+        <li><strong>IARPA HAYSTAC:</strong> Advanced to final phase for large-scale trajectory anomaly detection and microsimulation.</li>
+        <li><strong>Workshop Leadership:</strong> DriveX (Foundation Models for V2X Cooperative Driving) at ICCV 2025, CVPR 2026, IV 2026, and ITSC 2026.</li>
+        <li><strong>Workshop Leadership:</strong> AIGI-HMM (AI and Geospatial Intelligence for Human Mobility) at IEEE ITSC 2025.</li>
+      </ul>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <div class="section-head">
+        <h2>Selected Work</h2>
+        <a class="button" href="publications.html">View All Publications</a>
+      </div>
+      <div class="grid two">
+        <article class="pub-card">
+          <p class="pub-title">Learning Universal Human Mobility Patterns with a Foundation Model for Cross-Domain Data Fusion</p>
+          <p class="pub-authors"><strong>Haoxuan Ma</strong>, Xishun Liao, Yifan Liu, Qinhua Jiang, Chris Stanford, Shangqing Cao, Jiaqi Ma</p>
+          <span class="venue-tag">Transportation Research Part C (2025)</span>
+        </article>
+        <article class="pub-card">
+          <p class="pub-title">Mobility AI Agents and Networks: A Digital Twin Perspective</p>
+          <p class="pub-authors"><strong>Haoxuan Ma</strong>, Yifan Liu, Qinhua Jiang, Brian Yueshuai He, Xishun Liao, Jiaqi Ma</p>
+          <span class="venue-tag">IEEE Transactions on Intelligent Vehicles (2024)</span>
+        </article>
+        <article class="pub-card">
+          <p class="pub-title">Beyond 9-to-5: A Generative Model for Augmenting Mobility Data of Underrepresented Shift Workers</p>
+          <p class="pub-authors"><strong>Haoxuan Ma</strong>, Xishun Liao, Yifan Liu, Chris Stanford, Jiaqi Ma</p>
+          <span class="venue-tag">IEEE ITSC (2025)</span>
+        </article>
+        <article class="pub-card">
+          <p class="pub-title">Next-Generation Travel Demand Modeling with a Generative Framework for Household Activity Coordination</p>
+          <p class="pub-authors">Xishun Liao, <strong>Haoxuan Ma</strong>, Yifan Liu, Yuxiang Wei, Brian Yueshuai He, Chris Stanford, Jiaqi Ma</p>
+          <span class="venue-tag">IEEE ITSC (2025)</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <p class="footer">Built for academic applications and fellowship review.</p>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
