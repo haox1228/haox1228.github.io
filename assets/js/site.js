@@ -16,4 +16,15 @@
       });
     });
   }
+
+  document.querySelectorAll('.copy-button').forEach(function (button) {
+    button.addEventListener('click', function () {
+      const target = document.getElementById(button.getAttribute('data-copy'));
+      if (!target || !navigator.clipboard) return;
+      navigator.clipboard.writeText(target.textContent.trim()).then(function () {
+        button.textContent = 'Copied';
+        setTimeout(function () { button.textContent = 'Copy'; }, 1600);
+      });
+    });
+  });
 })();

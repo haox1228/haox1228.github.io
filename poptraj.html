@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Haoxuan Ma">
+  <meta name="description" content="PopTraj: hierarchical multi-source generation of household-coordinated weekly activity-location trajectories for synthetic urban populations.">
+  <title>PopTraj | Haoxuan Ma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">Haoxuan (Nick) Ma</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research Directions</a>
+        <a class="active" href="poptraj.html">PopTraj</a>
+        <a href="publications.html">Publications</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <span class="project-meta">Project &middot; Information Fusion (Major Revision)</span>
+      <h1 class="project-name">PopTraj</h1>
+      <p class="project-fulltitle">Hierarchical Multi-Source Generation of Household-Coordinated Weekly Activity&ndash;Location Trajectories with Urban Populations Synthesis</p>
+      <p class="project-authors"><strong>Haoxuan Ma*</strong>, Yifan Liu*, Bo Yang, Yiwen Zhang, Chris Stanford, Eli Fox, Xishun Liao, Jiaqi Ma</p>
+      <p class="project-affil">UCLA Mobility Lab &middot; New York University &middot; Novateur Research Solutions &middot; University of Central Florida &nbsp;|&nbsp; * equal contribution</p>
+      <div class="pub-links">
+        <a class="button button-primary" href="assets/papers/poptraj.pdf" target="_blank" rel="noopener noreferrer">Paper (PDF)</a>
+        <a class="button" href="https://ssrn.com/abstract=7484085" target="_blank" rel="noopener noreferrer">SSRN Preprint</a>
+        <a class="button" href="#bibtex">BibTeX</a>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>From census tables to a city's week</h2>
+      <p class="tldr">
+        Simulating a city needs a complete week for every resident: who lives together, when each person works or studies, where they go, and which activities they share with their household. That evidence is split across census tables, time-use surveys, POI data and anonymous GPS traces that cannot be linked person by person. PopTraj generates the whole object anyway. It synthesizes a census-consistent household population, gives each household a coordinated weekly schedule, and completes every member's week as zone-resolved activity&ndash;location trajectories. Each data source supervises only the level it actually observes.
+      </p>
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <span class="stat-value">395K</span>
+          <span class="stat-label">synthetic person-weeks generated in a metropolitan-scale Tokyo deployment</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value">0.0252</span>
+          <span class="stat-label">mean divergence across six realism metrics, vs. 0.0412 for the strongest of nine baselines</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value">&gt;16&times;</span>
+          <span class="stat-label">lower household coordination error than six learned schedule baselines</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value">&frac12;</span>
+          <span class="stat-label">demographic divergence with the persona prior, with little change in aggregate realism</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>Framework</h2>
+      <p class="story">
+        PopTraj factorizes census-to-trajectory synthesis into three source-aligned levels connected by latent household variables. No language model is needed at inference, so hundreds of thousands of weekly trajectories are produced in hours.
+      </p>
+      <figure class="doc-figure">
+        <img src="assets/figures/poptraj-framework.png" alt="PopTraj hierarchical framework: census marginals feed Level I population synthesis, Level II household schedule generation, and Level III HEARTH weekly trajectory completion, supported by census, GPS, time-use survey and POI data sources">
+        <figcaption>PopTraj as a hierarchical fusion architecture: evidence sources (bottom), three generation levels (center), and the coherent synthetic population of weekly trajectories (right).</figcaption>
+      </figure>
+
+      <div class="level-grid">
+        <article class="level-card">
+          <span class="level-tag">Level I</span>
+          <h3>Census-constrained population synthesis</h3>
+          <p>A sample-free synthesizer reconstructs households and members from aggregate census marginals, then assigns home and Work/School anchor zones.</p>
+        </article>
+        <article class="level-card">
+          <span class="level-tag">Level II</span>
+          <h3>Household weekly schedules</h3>
+          <p>A survey-calibrated language model writes a coordinated-schedule teacher corpus, which is distilled into a Hybrid 3D conditional VAE that separates shared household events from individual routines.</p>
+        </article>
+        <article class="level-card">
+          <span class="level-tag">Level III</span>
+          <h3>HEARTH trajectory completion</h3>
+          <p>A home-anchored transformer completes each dictated week as excursions (when, what, how long, where), steered by a vector-quantized persona latent learned from GPS.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>Inside the models</h2>
+      <h3>Level II: Hybrid 3D CVAE for household schedules</h3>
+      <figure class="doc-figure">
+        <img src="assets/figures/poptraj-cvae.png" alt="Hybrid 3D CVAE: household demographics and teacher-corpus weekly records are encoded as a shared-activity list and a member by day by slot tensor, decoded by twin heads with gated cross-fusion into a household weekly schedule">
+        <figcaption>Shared household events and member-day schedules are decoded by twin heads that exchange information through bidirectional gated cross-fusion.</figcaption>
+      </figure>
+
+      <h3>Level III: HEARTH, read on the grid and write in episodes</h3>
+      <figure class="doc-figure">
+        <img src="assets/figures/poptraj-hearth.png" alt="HEARTH: a partially dictated person-week and demographic profile are encoded by a bin-grid transformer with a VQ persona latent, then a home-anchored excursion decoder generates excursions under constraint-preserving decoding">
+        <figcaption>Home is the ambient state, so only excursions are generated. Constraint-preserving decoding keeps every dictated event in place and fills only the free gaps.</figcaption>
+      </figure>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <div class="split">
+        <div>
+          <h2>A generated household week</h2>
+          <p class="story">
+            One synthetic five-member household in Tokyo. Work and School follow each member's own rhythm, while shared errands, meals out, visits and recreation (bold edges) line up across members. The model reproduces this kind of coordination without ever seeing a household-labeled GPS trace.
+          </p>
+        </div>
+        <figure class="doc-figure" style="margin:0;">
+          <img src="assets/figures/poptraj-household-week.png" alt="Gantt chart of one generated five-member household across Monday to Sunday, showing individual Work and School blocks and shared discretionary activities">
+          <figcaption>Work/School plus bold-edged shared discretionary activities across a full week.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>Results</h2>
+      <h3>Trajectory realism against nine baselines</h3>
+      <p class="story">Mean Jensen&ndash;Shannon divergence over six realism metrics (daily locations, departure time, duration, distance, radius, activity category) on the held-out Tokyo GPS test split. Lower is better.</p>
+      <div class="bar-chart" role="img" aria-label="Mean six-metric JSD by method, lower is better">
+        <div class="bar-row is-ours" title="PopTraj (HEARTH): 0.0252"><span class="bar-name">PopTraj (HEARTH)</span><span class="bar-track"><span class="bar-fill" style="width:11.45%"></span></span><span class="bar-value">0.0252</span></div>
+        <div class="bar-row" title="MIRAGE: 0.0412"><span class="bar-name">MIRAGE</span><span class="bar-track"><span class="bar-fill" style="width:18.73%"></span></span><span class="bar-value">0.0412</span></div>
+        <div class="bar-row" title="TrajGPT-DH: 0.0510"><span class="bar-name">TrajGPT-DH</span><span class="bar-track"><span class="bar-fill" style="width:23.18%"></span></span><span class="bar-value">0.0510</span></div>
+        <div class="bar-row" title="TimeGeo: 0.0658"><span class="bar-name">TimeGeo</span><span class="bar-track"><span class="bar-fill" style="width:29.91%"></span></span><span class="bar-value">0.0658</span></div>
+        <div class="bar-row" title="LSTM: 0.0756"><span class="bar-name">LSTM</span><span class="bar-track"><span class="bar-fill" style="width:34.36%"></span></span><span class="bar-value">0.0756</span></div>
+        <div class="bar-row" title="BERT4Traj-DH: 0.0928"><span class="bar-name">BERT4Traj-DH</span><span class="bar-track"><span class="bar-fill" style="width:42.18%"></span></span><span class="bar-value">0.0928</span></div>
+        <div class="bar-row" title="Transformer: 0.0933"><span class="bar-name">Transformer</span><span class="bar-track"><span class="bar-fill" style="width:42.41%"></span></span><span class="bar-value">0.0933</span></div>
+        <div class="bar-row" title="AttnMove-DH: 0.0968"><span class="bar-name">AttnMove-DH</span><span class="bar-track"><span class="bar-fill" style="width:44.00%"></span></span><span class="bar-value">0.0968</span></div>
+        <div class="bar-row" title="Semi-Markov: 0.1147"><span class="bar-name">Semi-Markov</span><span class="bar-track"><span class="bar-fill" style="width:52.14%"></span></span><span class="bar-value">0.1147</span></div>
+        <div class="bar-row" title="DeepTimeGeo-DH: 0.2142"><span class="bar-name">DeepTimeGeo-DH</span><span class="bar-track"><span class="bar-fill" style="width:97.36%"></span></span><span class="bar-value">0.2142</span></div>
+      </div>
+      <p class="chart-note">-DH marks completion systems adapted to the task with dual activity/zone heads. Full 395K-week decode, 50K-sample evaluation.</p>
+
+      <h3>Granular fidelity</h3>
+      <figure class="doc-figure">
+        <img src="assets/figures/poptraj-fidelity.png" alt="Eight panels comparing PopTraj output with the GPS reference: departure time, duration, category shares, occurrence JSD, zone visit frequency, unique zones per day, dwell time and daily travel distance">
+        <figcaption>Temporal (top) and spatial (bottom) distributions of the deployed decode against the held-out GPS reference.</figcaption>
+      </figure>
+
+      <h3>Household coordination</h3>
+      <p class="story">
+        On a 559-household held-out benchmark, per-member generators confirm only 4&ndash;5% of declared shared events, with coordination errors of 16.5&ndash;23.9. The deployed Level-II pipeline reaches <strong>0.87</strong>, is overlap-free after post-processing, has the highest distinct-schedule rate (0.79), and generates 43 household-weeks per second.
+      </p>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>Abstract</h2>
+      <p class="story">
+        Synthetic human mobility trajectories support urban planning, transportation simulation, and epidemic analysis by representing when, where, and how people conduct activities. However, existing approaches often model individuals independently or over single days, limiting joint representation of overnight activity, demographic heterogeneity, household interactions, and multiday regularities. The required evidence is fragmented across census, survey, geographic, and anonymous GPS data that cannot be linked at the individual level. We present PopTraj, a hierarchical multi-source generation framework for producing household-coordinated weekly activity&ndash;location trajectories for synthetic urban populations. PopTraj organizes generation into three source-aligned levels. A sample-free synthesizer reconstructs a household population from aggregate census constraints. A survey-calibrated language model produces a coordinated-schedule teacher corpus, which is distilled into a Hybrid 3D conditional variational autoencoder for scalable generation. Finally, HEARTH completes each dictated week as home-anchored excursions, using a vector-quantized persona latent to connect GPS-learned behavioral archetypes with a survey-derived demographic prior. In a metropolitan-scale Tokyo deployment, PopTraj generates 395K synthetic person-weeks. HEARTH achieves a mean divergence of 0.0252 across six realism metrics, compared with 0.0412 for the strongest of nine baselines. The deployed schedule pipeline reduces household coordination error by more than 16-fold relative to six learned baselines, while the persona prior halves demographic divergence with little change in aggregate realism. Source-removal, architecture, and error-propagation analyses show that the persona prior supplies demographic separation and the household schedule supplies cross-level coordination. PopTraj therefore provides a scalable route from unlinked population statistics and anonymous mobility data to simulation-ready human mobility trajectories.
+      </p>
+    </section>
+
+    <section class="card" style="margin-top:18px;" id="bibtex">
+      <h2>Citation</h2>
+      <pre class="bibtex"><button class="copy-button" type="button" data-copy="bibtex-text">Copy</button><code id="bibtex-text">@article{ma2026poptraj,
+  title   = {PopTraj: Hierarchical Multi-Source Generation of Household-Coordinated
+             Weekly Activity-Location Trajectories with Urban Populations Synthesis},
+  author  = {Ma, Haoxuan and Liu, Yifan and Yang, Bo and Zhang, Yiwen and
+             Stanford, Chris and Fox, Eli and Liao, Xishun and Ma, Jiaqi},
+  journal = {SSRN Electronic Journal},
+  year    = {2026},
+  url     = {https://ssrn.com/abstract=7484085},
+  note    = {Preprint}
+}</code></pre>
+    </section>
+  </main>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
